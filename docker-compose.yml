@@ -1,6 +1,6 @@
 ---
-version: '3.8'
 name: expense
+version: '3.8'
 #if you want to create and use a new network use below
 networks:
   default:
