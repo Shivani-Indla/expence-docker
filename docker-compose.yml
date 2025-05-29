@@ -1,5 +1,6 @@
 ---
 version: '3.8'
+name: expense
 #if you want to create and use a new network use below
 networks:
   default:
@@ -14,20 +15,17 @@ services:
     networks: 
       - expense
 
-    backend:
-      image: backend:v1.0
-      container_name: backend
-      networks: 
-        - expense
-      depends_on:
-        - mysql
+  backend:
+    image: backend:v1.0
+    container_name: backend
+    networks: expense
+    depends_on:
+      - mysql
 
-    frontend:
-      image: frontend:v1.0
-      container_name: frontend
-      networks: 
-        - expense
-      depends_on: 
-        - backend
-      ports: 
-      - "3306:3306"
+  frontend:
+    image: frontend:v1.0
+    container_name: frontend
+    depends_on: 
+      - backend
+    ports: 
+    - "3306:3306"
