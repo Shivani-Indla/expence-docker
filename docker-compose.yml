@@ -31,7 +31,3 @@ services:
         - backend
       ports: 
       - "3306:3306"
-
-
-  #services: ['mysql: {image: mysql:v1.0, container_name: mysql}', 'frontend: {frontend:v1.0, container_name: frontend}', 'backend: {backend:v1.0, container_name: backend}']
-
