@@ -12,8 +12,6 @@ services:
   mysql:
     image: mysql:v1.0
     container_name: mysql
-    networks: 
-      - expense
 
   backend:
     image: backend:v1.0
