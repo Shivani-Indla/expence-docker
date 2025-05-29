@@ -1,6 +1,6 @@
 ---
-name: expense
 version: '3.8'
+name: expense
 #if you want to create and use a new network use below
 networks:
   default:
@@ -16,6 +16,7 @@ services:
   backend:
     image: backend:v1.0
     container_name: backend
+    command: sh -c "sleep 20 && node /opt/server/index.js"  #to sleep/wait some time
     depends_on:
       - mysql
 
