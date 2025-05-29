@@ -18,14 +18,16 @@ services:
     backend:
       image: backend:v1.0
       container_name: backend
-      networks: expense
+      networks: 
+        - expense
       depends_on:
         - mysql
 
     frontend:
       image: frontend:v1.0
       container_name: frontend
-      networks: expense
+      networks: 
+        - expense
       depends_on: 
         - backend
       ports: 
