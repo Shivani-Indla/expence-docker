@@ -8,22 +8,26 @@ networks:
     #or
   #networks: 
     #- expense #it will use the existed network
+volumes:
+  testvol1:  #it will create the new volume
 services:
   mysql:
     image: mysql:v1.0
     container_name: mysql
+  volumes:
+    - testvol1:/var/lib/mysql/  #mounts the testvol1 on /var/lib/mysql insode the container
 
   backend:
     image: backend:v1.0
     container_name: backend
     command: sh -c "sleep 20 && node /opt/server/index.js"  #to sleep/wait some time
     depends_on:
-    - mysql
+      - mysql
 
   frontend:
     image: frontend:v1.0
     container_name: frontend
     depends_on: 
-    - backend
+      - backend
     ports: 
     - "80:80"
