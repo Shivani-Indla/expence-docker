@@ -14,8 +14,8 @@ services:
   mysql:
     image: mysql:v1.0
     container_name: mysql
-  volumes:
-    - testvol1:/var/lib/mysql/  #mounts the testvol1 on /var/lib/mysql insode the container
+    volumes:
+      - testvol1:/var/lib/mysql/  #mounts the testvol1 on /var/lib/mysql insode the container
 
   backend:
     image: backend:v1.0
